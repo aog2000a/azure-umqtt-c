@@ -32,7 +32,8 @@ option(compileOption_CXX "passes a string to the command line of the C++ compile
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # Start of variables used during install
-#set (INCLUDE_INSTALL_DIR include CACHE PATH "Include file directory")
+set (INCLUDE_INSTALL_DIR "include" CACHE PATH "Include file directory")
+set (LIB_INSTALL_DIR "lib" CACHE PATH "Library object file directory")
 
 add_subdirectory(azure-c-shared-utility)
 
