@@ -24,6 +24,7 @@ include(ExternalProject)
 
 #the following variables are project-wide and can be used with cmake-gui
 option(skip_unittests "set skip_unittests to ON to skip unittests (default is OFF)[if possible, they are always build]" OFF)
+option(skip_samples_and_tools "set skip_samples_and_tools to ON to skip building samples and tools (default is OFF, samples and tests are built)" OFF)
 option(compileOption_C "passes a string to the command line of the C compiler" OFF)
 option(compileOption_CXX "passes a string to the command line of the C++ compiler" OFF)
 
@@ -125,7 +126,9 @@ endif()
 
 target_link_libraries(umqtt aziotsharedutil)
 
-add_subdirectory(samples)
+if(NOT ${skip_samples_and_tools})
+	add_subdirectory(samples)
+endif()
 if (NOT ${skip_unittests})
     add_subdirectory(tests)
 endif()
